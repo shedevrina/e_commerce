@@ -1,7 +1,7 @@
 import pytest
-from src.product import Product
-from src.category import Category
 
+from src.category import Category
+from src.product import Product
 
 
 @pytest.fixture
@@ -9,21 +9,26 @@ def product():
     return Product("name_test", "description_test", 100.00, 15)
 
 
-
 @pytest.fixture
 def category_one():
-    return Category("name_test_one", "description_test_one",
-                    [Product("name_test1", "desk_test1", 50.00, 20),
-                     Product("name_test2", "desk_test2", 50.00, 20)])
+    return Category(
+        "name_test_one",
+        "description_test_one",
+        [
+            Product("name_test1", "desk_test1", 50.00, 20),
+            Product("name_test2", "desk_test2", 50.00, 20)],
+    )
 
 
 @pytest.fixture
 def category_two():
-    return Category("name_test_two", "description_test_two",
-                    [Product("name_test1", "desk_test1", 10.00, 10),
-                     Product("name_test2", "desk_test2", 10.00, 10)])
-
-
+    return Category(
+        "name_test_two",
+        "description_test_two",
+        [
+            Product("name_test1", "desk_test1", 10.00, 10),
+            Product("name_test2", "desk_test2", 10.00, 10)],
+    )
 
 
 # @pytest.fixture

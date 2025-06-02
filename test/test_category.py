@@ -1,4 +1,3 @@
-
 def test_category_init(category_one, category_two):
     assert category_one.name == "name_test_one"
     assert category_one.description == "description_test_one"
