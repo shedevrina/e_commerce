@@ -19,7 +19,7 @@ pip install -r requirements.txt
 1. Проект покрыт тест-кейсами с фикстурами - модуль ./test/...
 2. Сформирован отчет покрытия тестами в папку ./calc_col с помощью операции:
 ```
-   coverage html -d coverage_html
+   coverage html -d htmlcov
 ```
 
 ## Документация:
