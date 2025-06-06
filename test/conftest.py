@@ -6,7 +6,30 @@ from src.product import Product
 
 @pytest.fixture
 def product():
-    return Product("name_test", "description_test", 100.00, 15)
+    return Product("name_test", "description_test", 100.0, 15)
+
+
+@pytest.fixture
+def coll_negative_product_type():
+    """Негативные данные"""
+    return [True, -3, [1, "hello", [0]], [], None]
+
+
+@pytest.fixture
+def product_dict():
+    return {
+        "name": "Samsung",
+        "description": "256GB, Серый цвет, 200MP камера",
+        "price": 20.0,
+        "quantity": 5
+            }
+
+
+@pytest.fixture
+def product_negative_dict():
+    return {
+        "name": "Samsung",
+    }
 
 
 @pytest.fixture
@@ -15,8 +38,9 @@ def category_one():
         "name_test_one",
         "description_test_one",
         [
-            Product("name_test1", "desk_test1", 50.00, 20),
-            Product("name_test2", "desk_test2", 50.00, 20)],
+            Product("name_test1", "desk_test1", 50.0, 20),
+            Product("name_test2", "desk_test2", 50.0, 20)
+        ],
     )
 
 
@@ -26,8 +50,9 @@ def category_two():
         "name_test_two",
         "description_test_two",
         [
-            Product("name_test1", "desk_test1", 10.00, 10),
-            Product("name_test2", "desk_test2", 10.00, 10)],
+            Product("name_test1", "desk_test1", 10.0, 10),
+            Product("name_test2", "desk_test2", 10.0, 10)
+        ],
     )
 
 
@@ -37,7 +62,3 @@ def category_two():
 #     Category.category_count = 0  # Сброс после теста
 
 #
-# @pytest.fixture
-# def coll_negative_type():
-#     """Негативные данные"""
-#     return [True, -3, [1, "hello", [0]], {}, [], None]
