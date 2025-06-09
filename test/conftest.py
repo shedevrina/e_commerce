@@ -8,9 +8,11 @@ from src.product import Product
 def product():
     return Product("name_test", "description_test", 100.0, 15)
 
+
 @pytest.fixture
 def product_add_1():
     return Product("name_test_add_1", "description_test", 100.0, 1)
+
 
 @pytest.fixture
 def product_add_2():
@@ -30,7 +32,7 @@ def product_dict():
         "description": "256GB, Серый цвет, 200MP камера",
         "price": 20.0,
         "quantity": 5
-            }
+    }
 
 
 @pytest.fixture
@@ -46,8 +48,17 @@ def category_one():
         "name_test_one",
         "description_test_one",
         [
-            Product("name_test1", "desk_test1", 50.0, 20),
-            Product("name_test2", "desk_test2", 50.0, 20)
+            Product(
+                "name_test1",
+                "desk_test1",
+                50.0,
+                20),
+            Product(
+                "name_test2",
+                "desk_test2",
+                50.0,
+                20
+            )
         ],
     )
 
@@ -58,8 +69,17 @@ def category_two():
         "name_test_two",
         "description_test_two",
         [
-            Product("name_test1", "desk_test1", 10.0, 10),
-            Product("name_test2", "desk_test2", 10.0, 10)
+            Product(
+                "name_test1",
+                "desk_test1",
+                10.0,
+                10),
+            Product(
+                "name_test2",
+                "desk_test2",
+                10.0,
+                10
+            )
         ],
     )
 

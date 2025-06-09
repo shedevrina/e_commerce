@@ -47,4 +47,4 @@ def test_all_summ_product(product_add_1, product_add_2):
 
 
 def test_product_str(product):
-    assert str(product) == 'name_test, 100.0 руб. Остаток: 15 шт.'
+    assert str(product) == "name_test, 100.0 руб. Остаток: 15 шт."

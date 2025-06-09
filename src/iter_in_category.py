@@ -1,8 +1,8 @@
 from src.category import Category
 
+
 class IterCategory:
-    """Класс принимает на вход объект класса категории и производить итерацию по товарам,
-    которые хранятся в данной категории."""
+    """Принимает на вход объект класса категории и производит итерацию по товарам категории."""
 
     def __init__(self, category_obj: Category):
         self.category_obj = category_obj

@@ -12,15 +12,12 @@ class Product:
         self.description = description
         self.quantity = quantity
 
-
     def __str__(self):
-        return f'{self.name}, {self.price} руб. Остаток: {self.quantity} шт.'
-
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
-        all_summ = self.price*self.quantity + other.price*other.quantity
+        all_summ = self.price * self.quantity + other.price * other.quantity
         return all_summ
-
 
     # Метод принимающий словарь для создания нового объекта класса
     @classmethod

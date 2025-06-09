@@ -1,5 +1,7 @@
 import pytest
+
 from src.iter_in_category import IterCategory
+
 
 def test_category_init(category_one, category_two):
     assert category_one.name == "name_test_one"
@@ -21,18 +23,16 @@ def test_add_product(category_one, product):
         "name_test, 100.0 руб. Остаток: 15 шт.\n"
     )
 
+
 def test_category_str(category_one):
-    assert str(category_one) == 'name_test_one, количество продуктов: 9 шт.'
+    assert str(category_one) == "name_test_one, количество продуктов: 9 шт."
 
-
-import pytest
-from src.iter_in_category import IterCategory
 
 def test_iter_in_category(category_one):
     iter_in_category = IterCategory(category_one)
     assert iter_in_category.index == 0
-    assert next(iter_in_category).name == 'name_test1'
-    assert next(iter_in_category).name == 'name_test2'
+    assert next(iter_in_category).name == "name_test1"
+    assert next(iter_in_category).name == "name_test2"
 
     with pytest.raises(StopIteration):
         next(iter_in_category)
