@@ -8,6 +8,14 @@ from src.product import Product
 def product():
     return Product("name_test", "description_test", 100.0, 15)
 
+@pytest.fixture
+def product_add_1():
+    return Product("name_test_add_1", "description_test", 100.0, 1)
+
+@pytest.fixture
+def product_add_2():
+    return Product("name_test_add_2", "description_test", 100.0, 2)
+
 
 @pytest.fixture
 def coll_negative_product_type():
