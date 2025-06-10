@@ -39,6 +39,9 @@ exclude = '''\.git'''
 # максимальная длина строки
 line_length = 119
 
+[tool.flake8]
+max-line-length = 120
+
 [tool.mypy]
 disallow_untyped_defs = true
 warn_return_any = true
