@@ -15,13 +15,13 @@ def product():
 @pytest.fixture
 def product_add_1():
     """Объект родительского класса. Для сложения"""
-    return Product("name_test_add_1", "description_test", 100.0, 1)
+    return Smartphone("name_test_add_1", "description_test", 100.0, 1)
 
 
 @pytest.fixture
 def product_add_2():
     """Объект родительского класса. Для сложения"""
-    return Product("name_test_add_2", "description_test", 100.0, 2)
+    return Smartphone("name_test_add_2", "description_test", 100.0, 2)
 
 
 @pytest.fixture

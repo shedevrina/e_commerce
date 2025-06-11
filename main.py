@@ -86,3 +86,11 @@ if __name__ == "__main__":
         print("Возникла ошибка TypeError при добавлении не продукта")
     else:
         print("Не возникла ошибка TypeError при добавлении не продукта")
+
+
+    try:
+        invalid_sum = smartphone1 + smartphone1
+    except TypeError:
+        print("Возникла ошибка TypeError при попытке сложения")
+    else:
+        print("Не возникла ошибка TypeError при попытке сложения")

@@ -33,8 +33,7 @@ class Category:
             product_str += f"{str(product)}\n"
         return product_str
 
-    @products.setter
-    def products(self, product: Product):
+    def add_product(self, product: Product):
         """Метод добавления нового продукта в категорию."""
         if isinstance(product, Product):
             self.__products.append(product)
