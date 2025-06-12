@@ -48,3 +48,8 @@ def test_all_summ_product(product_add_1, product_add_2):
 
 def test_product_str(product):
     assert str(product) == "name_test, 100.0 руб. Остаток: 15 шт."
+
+
+def test_all_summ_product_other_class(product_add_1, product_lawn_grass_1):
+    with pytest.raises(TypeError):
+        assert product_add_1 + product_lawn_grass_1
