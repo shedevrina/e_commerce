@@ -6,7 +6,7 @@ class Product:
     price: float
     quantity: int
 
-    def __init__(self, name, description, price, quantity):
+    def __init__(self, name=None, description=None, price=None, quantity=None):
         self.name = name
         self.__price = price
         self.description = description
@@ -16,12 +16,14 @@ class Product:
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
+        if type(other) is Product:
+            raise TypeError
+
         all_summ = self.price * self.quantity + other.price * other.quantity
         return all_summ
 
-    # Метод принимающий словарь для создания нового объекта класса
     @classmethod
-    def new_product(cls, product_dict: dict):
+    def new_product(cls, product_dict: dict):  # Метод принимающий словарь для создания нового объекта класса
 
         if type(product_dict) != dict:
             raise TypeError("Ошибка типа данных")
@@ -39,14 +41,12 @@ class Product:
             quantity = product_dict["quantity"]
             return cls(name, description, price, quantity)
 
-    # Геттер для __price
     @property
-    def price(self):
+    def price(self):  # Геттер для __price
         return self.__price
 
-    # Сеттер для __price. Проверка цены.
     @price.setter
-    def price(self, price: float):
+    def price(self, price: float):  # Сеттер для __price. Проверка цены.
         if price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
         else:

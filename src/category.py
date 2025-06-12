@@ -11,7 +11,7 @@ class Category:
     category_count = 0
     product_count = 0
 
-    def __init__(self, name="NoName", description="NoName", products=None):
+    def __init__(self, name=None, description=None, products=None):
 
         self.name = name
         self.description = description
@@ -26,17 +26,20 @@ class Category:
             self.all_count += i.quantity
         return f"{self.name}, количество продуктов: {self.all_count} шт."
 
-    def add_product(self, product: Product):
-        self.__products.append(product)
-        Category.product_count += 1
-
-    # Геттер для __products
     @property
-    def products(self) -> str:
+    def products(self) -> str:  # Геттер для __products
         product_str = ""
         for product in self.__products:
             product_str += f"{str(product)}\n"
         return product_str
+
+    def add_product(self, product: Product):
+        """Метод добавления нового продукта в категорию."""
+        if isinstance(product, Product):
+            self.__products.append(product)
+            Category.product_count += 1
+        else:
+            raise TypeError
 
     @property
     def product_in_list(self):

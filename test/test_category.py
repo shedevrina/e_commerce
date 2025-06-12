@@ -2,7 +2,6 @@ import pytest
 
 from src.iter_in_category import IterCategory
 
-from src.category import Category
 
 def test_category_init(category_one, category_two):
     assert category_one.name == "name_test_one"
@@ -37,3 +36,14 @@ def test_iter_in_category(category_one):
 
     with pytest.raises(StopIteration):
         next(iter_in_category)
+
+
+def test_add_product_negative(category_one):
+    with pytest.raises(TypeError):
+        category_one.add_product(1)
+        assert TypeError
+
+
+def test_add_product_positive(category_one, product_lawn_grass_2):
+    category_one.add_product(product_lawn_grass_2)
+    assert category_one.product_in_list[-1].name == "Газонная трава 2"
