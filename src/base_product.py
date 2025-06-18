@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class BaseProduct(ABC):
-    """Абстрактный родительским для класса продукта."""
+    """Абстрактный родительский класс для класса продукта."""
 
     @classmethod
     @abstractmethod
