@@ -1,6 +1,8 @@
 import pytest
 
+from src.category import Category
 from src.iter_in_category import IterCategory
+from src.product import Product
 
 
 def test_category_init(category_one, category_two):
@@ -47,3 +49,23 @@ def test_add_product_negative(category_one):
 def test_add_product_positive(category_one, product_lawn_grass_2):
     category_one.add_product(product_lawn_grass_2)
     assert category_one.product_in_list[-1].name == "Газонная трава 2"
+
+
+def test_avr_category_product(category_avr, category_avr_zero_1):
+    assert Category.middle_price(category_avr) == 10
+    assert Category.middle_price(category_avr_zero_1) == 0
+
+
+def test_custom_exeption(capsys, category_one):
+    category_one.add_product(Product("name_test", "description_test", 100.0, 0))
+    message = capsys.readouterr()
+    assert message.out.strip().split("\n")[-1] == "Обработка добавления товара завершена"  # Забираем последний вывод
+    assert (
+        message.out.strip().split("\n")[-2] == "Нельзя добавить продукт с нулевым количеством"
+    )  # Забираем предпоследний вывод
+
+    category_one.add_product(Product("name_test", "description_test", 100.0, 1))
+    assert len(category_one.product_in_list) == 3
+    message = capsys.readouterr()
+    assert message.out.strip().split("\n")[-1] == "Обработка добавления товара завершена"  # Забираем последний вывод
+    assert message.out.strip().split("\n")[-2] == "Товар добавлен"  # Забираем предпоследний вывод

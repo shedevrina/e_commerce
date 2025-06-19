@@ -49,7 +49,9 @@ def category_one():
     return Category(
         "name_test_one",
         "description_test_one",
-        [Product("name_test1", "desk_test1", 50.0, 20), Product("name_test2", "desk_test2", 50.0, 20)],
+        [
+            Product("name_test1", "desk_test1", 50.0, 20),
+            Product("name_test2", "desk_test2", 50.0, 20)],
     )
 
 
@@ -59,7 +61,9 @@ def category_two():
     return Category(
         "name_test_two",
         "description_test_two",
-        [Product("name_test1", "desk_test1", 10.0, 10), Product("name_test2", "desk_test2", 10.0, 10)],
+        [
+            Product("name_test1", "desk_test1", 10.0, 10),
+            Product("name_test2", "desk_test2", 10.0, 10)],
     )
 
 
@@ -69,27 +73,84 @@ def category_add_product():
     return Category(
         "name_test_1",
         "description_test_two",
-        [Product("name_test1", "desk_test1", 10.0, 10), Product("name_test2", "desk_test2", 10.0, 10)],
+        [
+            Product("name_test1", "desk_test1", 10.0, 10),
+            Product("name_test2", "desk_test2", 10.0, 10)],
     )
 
 
 @pytest.fixture
 def product_smartphone_1():
     """Объект класса-наследника"""
-    return Smartphone("name_test1", "description_test", 100.0, 15, 95.5, "S23 Ultra", 256, "Серый")
+    return Smartphone(
+        "name_test1",
+        "description_test",
+        100.0,
+        15,
+        95.5,
+        "S23 Ultra",
+        256,
+        "Серый")
 
 
 @pytest.fixture
 def product_smartphone_2():
     """Объект класса-наследника"""
-    return Smartphone("name_test2", "description_test2", 10.0, 1, 98.2, "15", 512, "Gray space")
+    return Smartphone(
+        "name_test2",
+        "description_test2",
+        10.0,
+        1,
+        98.2,
+        "15",
+        512,
+        "Gray space")
 
 
 @pytest.fixture
 def product_lawn_grass_1():
-    return LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
+    return LawnGrass(
+        "Газонная трава",
+        "Элитная трава для газона",
+        500.0, 20,
+        "Россия",
+        "7 дней",
+        "Зеленый")
 
 
 @pytest.fixture
 def product_lawn_grass_2():
-    return LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
+    return LawnGrass(
+        "Газонная трава 2",
+        "Выносливая трава",
+        450.0, 15,
+        "США",
+        "5 дней",
+        "Темно-зеленый")
+
+
+@pytest.fixture
+def category_avr():
+    return Category(
+        "name_test_1",
+        "description_test_two",
+
+        [Product("name_test1", "desk_test1", 10.0, 2),
+         Product("name_test2", "desk_test2", 10.0, 2)],
+    )
+
+
+@pytest.fixture
+def category_avr_zero_1():
+    return Category(
+        "name_test_1",
+        "description_test_two",
+        [],
+    )
+
+
+@pytest.fixture
+def category_avr_zero_2():
+    return Category(
+        "name_test_2", "description_test_two",
+        [Product("name_test1", "desk_test1", 10.0, 0)])
