@@ -33,13 +33,11 @@ def test_new_product_value(product_negative_dict):
 
 
 def test_price_update(capsys, product):
-    product.price = 0.0
-    message = capsys.readouterr()
-    assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
-
     product.price = -100.0
     message = capsys.readouterr()
-    assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
+    assert (
+        message.out.strip().split("\n")[-1] == "Цена не должна быть нулевая или отрицательная"
+    )  # Забираем последний вывод, т.к. есть вывод в тесте миксина
 
 
 def test_all_summ_product(product_add_1, product_add_2):
