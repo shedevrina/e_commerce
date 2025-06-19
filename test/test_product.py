@@ -51,3 +51,8 @@ def test_product_str(product):
 def test_all_summ_product_other_class(product_add_1, product_lawn_grass_1):
     with pytest.raises(TypeError):
         assert product_add_1 + product_lawn_grass_1
+
+
+def test_product_zero_quantity():
+    with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть создан"):
+        Product("name_test", "description_test", 100.0, -1)
