@@ -2,7 +2,7 @@ from src.product import Product
 
 
 class LawnGrass(Product):
-    """Класс-наследник от продукта: «Трава газонная» ."""
+    """Класс-наследник от продукта: «Трава газонная»."""
 
     def __init__(
         self, name=None, description=None, price=None, quantity=None, country=None, germination_period=None, color=None
